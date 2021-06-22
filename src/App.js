@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import Actions from './components/Actions';
+import Counter from './components/Counter';
+import {useState} from 'react'
 
-function App() {
+function App(props) {
+
+  const [numbers,setNumbers]=useState(0);
+
+  const dale= 8;
+
+  const sumar=()=>{
+    setNumbers(numbers+1);
+  }
+  const restar=()=>{
+    setNumbers(numbers-1);
+  }
+
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      <Counter myprop={numbers}/>
+      <Actions metSumar={sumar} metRestar={restar}/>
     </div>
   );
 }
